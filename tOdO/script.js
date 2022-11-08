@@ -10,7 +10,7 @@ function removeItem(event) {
         if (confirm('Are u sure?')) {
             let data = event.target.parentElement.previousElementSibling.firstElementChild.value
             let R = new XMLHttpRequest();
-            R.open('POST', `http://127.0.0.1:3030/todoRemove`)
+            R.open('POST', `/todoRemove`)
             R.setRequestHeader('content-type', "application/json")
             R.send(JSON.stringify({text: data}))
             R.addEventListener("load", () => {
