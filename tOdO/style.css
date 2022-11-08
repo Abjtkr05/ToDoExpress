@@ -51,7 +51,7 @@
     background-color: #4d84e2;
 }
 .button:hover:after{
-    content: 'LOGOUT';
+    content: ' LOGOUT';
 }
 
 .heading {

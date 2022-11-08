@@ -1,1 +1,1 @@
-[{"username":"abhi","email":"00abjtkumar@gmail.com","password":"Abh!1998"},{"username":"abjtkr","email":"abjtkumar0@gmail.com","password":"Abh!1998"},{"username":"","email":"","password":""},{"username":"anagha06","email":"shree06anagha@gmail.com","password":"Anagha"}]
+[]

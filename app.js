@@ -12,7 +12,6 @@ app.use(session({
     saveUninitialized: true,
     cookie: {secure: false}
 }))
-app.set("view engine", "ejs")
 
 //sending-page
 app.get("/", home)
@@ -26,7 +25,7 @@ app.post('/signup', signin);
 app.post('/logout', logout)
 
 //updating-todo-list
-app.route('/todoo').post(postTodo)
+app.route('/todoo').post(postTodo).get(loadTodo)
 app.post('/todoRemove', remove);
 
 //function for sending home page
@@ -36,7 +35,7 @@ function home(req, res) {
             data = data.filter(val => {
                 return val.createdBy === req.session.userName;
             })
-            res.render('todoListPage', {data: data, userName: req.session.userName})
+            res.sendFile(__dirname + '/tOdO/index.html')
         })
     } else {
         res.redirect('/login')
@@ -67,7 +66,6 @@ function logout(req, res) {
 
 //function for handling login request of form
 function login(req, res) {
-
     getData((err, data) => {
         if (err) {
             console.log(err)
@@ -156,10 +154,36 @@ function postTodo(req, res) {
                 if (err) {
                     console.log(err)
                     res.end();
+                }else{
+                    res.end(req.body.text)
                 }
             })
         }
     })
+}
+
+//function to load Todo
+function loadTodo(req,res){
+    getTodo((err,data)=>{
+        if(err){
+            console.log(err)
+        }else{
+            data = data.filter(data =>{
+                if(data.createdBy === req.session.userName)
+                return true;
+            })
+            if(data.length === 0){
+                const todo = [];
+                const temp= {
+                    text: '',
+                    createdBy: req.session.userName
+                }
+                data.push(temp)
+            }
+            res.json(data)
+        }
+    })
+    
 }
 
 //helper function for saving and retrieving data from todo.txt
@@ -178,6 +202,8 @@ function saveTodo(data, callback) {
         if (err) {
             console.log(err)
             callback(err)
+        }else{
+            callback(null)
         }
     })
 }
