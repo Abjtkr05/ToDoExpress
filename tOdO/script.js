@@ -38,7 +38,7 @@ function addItems(event) {
     if (event.key === "Enter") {
         let val = event.target.value
         let R = new XMLHttpRequest();
-        R.open('POST', `http://127.0.0.1:3030/todoo`)
+        R.open('POST', `/todoo`)
         R.setRequestHeader('content-type', "application/json")
         R.send(JSON.stringify({text: val}))
         location.reload();

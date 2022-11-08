@@ -154,6 +154,7 @@ function postTodo(req, res) {
             data.push(todo)
             saveTodo(data, (err) => {
                 if (err) {
+                    console.log(err)
                     res.end();
                 }
             })
@@ -175,6 +176,7 @@ function getTodo(callback) {
 function saveTodo(data, callback) {
     fs.writeFile("./todoList.txt", JSON.stringify(data), err => {
         if (err) {
+            console.log(err)
             callback(err)
         }
     })
