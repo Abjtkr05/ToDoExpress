@@ -1,0 +1,106 @@
+
+.body {
+    padding: 0;
+    margin: 0;
+}
+
+.Parent {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.child1 {
+    width: 50%;
+    height: 100vh;
+    background-color: #EDEDED;
+    text-align: left;
+    padding: 35px;
+    font-size: 20px;
+    color: #333333;
+    font-family: 'Fira sans', 'sans-serif';
+}
+
+.child2 {
+    width: 50%;
+    background-color: #FFFFFF;
+    height: 100vh;
+}
+
+.logout {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    width: 150px;
+    background-color: #5995fd;
+    border: none;
+    outline: none;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.button:hover{
+    background-color: #4d84e2;
+}
+.button:hover:after{
+    content: 'LOGOUT';
+}
+
+.heading {
+    font-weight: bold;
+    color: #262626;
+}
+
+/*Right Side*/
+.input {
+    border: hidden;
+    appearance: none;
+    margin-left: 40px;
+    margin-top: 40px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #626262;
+
+}
+
+::placeholder {
+    color: #626262;
+}
+
+.input:focus {
+    outline: none;
+}
+
+/*Left Side*/
+.text, button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 15px;
+    color: #333333;
+
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.checkbox {
+    accent-color: #333333;
+    /*color: #333333;*/
+}
+

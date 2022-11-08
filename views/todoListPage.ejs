@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/tOdO/style.css">
+    <title>Todo</title>
+</head>
+<body>
+<div class="Parent">
+    <div class="child1">
+        <h1 class="heading">TASK LIST</h1>
+        <p class="sub-head">Add tasks to your list by typing to the right and pressing enter. You may then view pending
+            tasks below.</p>
+        <div id="tasks" class="tasks">
+            <% data.forEach((to_do)=>{ %>
+                <div class="task">
+                    <div class="content"><input type="text" class="text" value="<%= to_do.text %>" readonly="true"></div>
+                    <div class="actions"><input class="checkbox" type="checkbox">
+                        <button class="delete">X</button>
+                    </div>
+                </div>
+                <hr/>
+            <% }) %>
+        </div>
+    </div>
+
+
+    <div class="child2">
+        <div class="logout">
+            <div class="inner-logout">
+                <form action="/logout" method="post">
+                    <button class="button" data-hover="LOGOUT">
+                        Hi <%= userName %>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <input class="input" type="text" placeholder="I need to..." autofocus>
+    </div>
+</div>
+
+<script src="/tOdO/script.js"></script>
+</body>
+</html>
